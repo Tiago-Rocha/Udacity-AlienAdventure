@@ -12,20 +12,17 @@ extension Hero {
         
         var objects = [UDItem]()
         var obj:UDItem?
-        print("Oldest item from Planet")
+        
         for item in inventory {
             if item.historicalData["PlanetOfOrigin"] as? String == planet {
-                print("This is one item \(item.itemID), \(item.name), \(item.historicalData["CarbonAge"])")
                 objects.append(item)
             }
         }
         
         if objects.isEmpty {
             obj = nil
-        }else {
+        } else {
             for i in 0..<objects.count-1 {
-                print(i)
-                
                 let first = objects[i].historicalData["CarbonAge"] as? Int
                 let second = objects[i+1].historicalData["CarbonAge"] as? Int
                 
@@ -36,7 +33,6 @@ extension Hero {
                 }
             }
         }
-        print(obj)
         return obj
     }
     

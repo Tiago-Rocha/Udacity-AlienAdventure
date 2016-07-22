@@ -17,7 +17,6 @@ extension Hero {
         // unused variables 😀.
         var key: UInt8
         key = 0
-        print("Enctripted string \(encryptedString)")
         for x in UInt8.min..<UInt8.max {
             
             var decrypted: [UInt8]
@@ -32,7 +31,6 @@ extension Hero {
                     key = x
             }
         }
-        
         return key
     }
 }
