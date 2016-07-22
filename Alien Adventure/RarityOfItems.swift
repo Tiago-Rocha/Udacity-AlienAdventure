@@ -15,20 +15,17 @@ extension Hero {
         itemRarity[.Uncommon] = 0
         itemRarity[.Rare] = 0
         itemRarity[.Legendary] = 0
+        
         for item in inventory {
             switch item.rarity {
             case .Common:
                 itemRarity[.Common]! += 1
-                print(itemRarity[.Common])
             case .Uncommon:
                 itemRarity[.Uncommon]! += 1
-                print(itemRarity[.Uncommon])
             case .Rare:
                 itemRarity[.Rare]! += 1
-                print(itemRarity[.Rare])
             case .Legendary:
                 itemRarity[.Legendary]! += 1
-                print(itemRarity[.Legendary])
             }
         }
         return itemRarity
