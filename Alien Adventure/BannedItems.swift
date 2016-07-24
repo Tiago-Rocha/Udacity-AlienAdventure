@@ -18,7 +18,6 @@ extension Hero {
         let maxAge = 30
         
         for item in itemsArray {
-            print("\(item["Name"]) \n")
             if (item["Name"]!.containsString(stringToSearch)) {
                 if let histData = item["HistoricalData"] {
                     if (histData["CarbonAge"] as? Int) < maxAge {
