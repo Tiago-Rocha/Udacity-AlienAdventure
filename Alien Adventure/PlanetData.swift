@@ -39,7 +39,6 @@ extension Hero {
                 maxPlanet = planet["Name"] as! String
                 maxTotal = total
             }
-            print("\(planet["Name"]) has \(total) points)")
         }
         
         return maxPlanet
