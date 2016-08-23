@@ -27,8 +27,10 @@ class SpecialBadge: Badge {
     }
     
     func defineAnimation(){
+        
         let randomNumber = arc4random_uniform(3)
         print(randomNumber)
+        
         switch randomNumber {
         case 0:
             self.GrowAndShrink()
@@ -42,7 +44,6 @@ class SpecialBadge: Badge {
     }
     
     func Shake(){
-        print("Should Shake")
         let x: Float = 10
         let y: Float = 6
         let numberOfTimes = 2.0 / 0.04
@@ -61,16 +62,15 @@ class SpecialBadge: Badge {
     }
     
     func Rotate(){
-        print("Should Rotate")
         let action = SKAction.rotateByAngle(CGFloat(-M_PI), duration: 1.5)
         runAction(SKAction.repeatActionForever(action))
     }
     
     func GrowAndShrink(){
-        print("Should Grow")
         let action1 = SKAction.scaleTo(0.8, duration: 1.0)
         let action2 = SKAction.scaleTo(1.1, duration: 1.0)
         let sequencedAction = SKAction.sequence([action1, action2])
         runAction(SKAction.repeatActionForever(sequencedAction))
     }
+    
 }
