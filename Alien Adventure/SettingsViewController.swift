@@ -17,7 +17,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var levelSegmentedControl: UISegmentedControl!
     @IBOutlet weak var startGameButton: UIButton!
-    @IBOutlet weak var showBadgesLabel: UILabel!    
+    @IBOutlet weak var showBadgesLabel: UILabel!
     @IBOutlet weak var showBadgesSwitch: UISwitch!
     
     // MARK: Life Cycle
@@ -42,20 +42,28 @@ class SettingsViewController: UIViewController {
     // MARK: Add Targets
     
     func addTargets() {
-        print("adding targets!")
+        startGameButton.addTarget(self, action: #selector(SettingsViewController.startGame), forControlEvents: .TouchUpInside)
+        showBadgesSwitch.addTarget(self, action: #selector(SettingsViewController.showBadges(_:)), forControlEvents: .TouchUpInside)
+        levelSegmentedControl.addTarget(self, action: #selector(SettingsViewController.switchLevel(_:)), forControlEvents: .ValueChanged)
+        
     }
     
     // MARK: Implementing Actions
     
     func switchLevel(segmentControl: UISegmentedControl) {
-        print("level control has changed!")
+        print(segmentControl.selectedSegmentIndex)
+        Settings.Common.Level = segmentControl.selectedSegmentIndex
     }
     
     func showBadges(switchControl: UISwitch) {
-        print("show badges switch has changed!")
+        print("show badges is \(switchControl.on)")
+        Settings.Common.ShowBadges = switchControl.on
     }
     
     func startGame() {
-        print("start button has been pressed!")
+        let alienAdventureViewController = self.storyboard!.instantiateViewControllerWithIdentifier("AlienAdventureViewController")
+            as! AlienAdventureViewController
+        self.presentViewController(alienAdventureViewController,
+                                   animated: true, completion: nil)
     }
 }
