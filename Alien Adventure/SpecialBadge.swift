@@ -28,22 +28,20 @@ class SpecialBadge: Badge {
     
     func defineAnimation(){
         
-        let randomNumber = arc4random_uniform(3)
-        print(randomNumber)
+        let animation = BadgeAnimation(rawValue: Int(arc4random_uniform(3)))
         
-        switch randomNumber {
-        case 0:
-            self.GrowAndShrink()
-        case 1:
-            self.Rotate()
-        case 2:
-            self.Shake()
-        default:
-            break;
+        switch animation! {
+        case .GrowAndShrink:
+            growAndShrink()
+        case .Rotate:
+            rotate()
+        case .Shake:
+            shake()
         }
     }
     
-    func Shake(){
+    func shake(){
+        
         let x: Float = 10
         let y: Float = 6
         let numberOfTimes = 2.0 / 0.04
@@ -61,12 +59,14 @@ class SpecialBadge: Badge {
         runAction(SKAction.repeatActionForever(sequencedAction))
     }
     
-    func Rotate(){
+    func rotate(){
+        
         let action = SKAction.rotateByAngle(CGFloat(-M_PI), duration: 1.5)
         runAction(SKAction.repeatActionForever(action))
     }
     
-    func GrowAndShrink(){
+    func growAndShrink(){
+        
         let action1 = SKAction.scaleTo(0.8, duration: 1.0)
         let action2 = SKAction.scaleTo(1.1, duration: 1.0)
         let sequencedAction = SKAction.sequence([action1, action2])
