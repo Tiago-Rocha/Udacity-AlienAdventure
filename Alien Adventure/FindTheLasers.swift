@@ -9,9 +9,13 @@
 extension Hero {
     
     func findTheLasers() -> (UDItem -> Bool) {
-        
+
         func containsLaser(item: UDItem) -> Bool {
-            return true
+            if item.name.containsString("Laser"){
+                return true
+            } else {
+                return false
+            }
         }
         
         return containsLaser
