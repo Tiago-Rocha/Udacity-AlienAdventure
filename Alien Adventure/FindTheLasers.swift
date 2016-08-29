@@ -17,7 +17,6 @@ extension Hero {
                 return false
             }
         }
-        
         return containsLaser
     }
     

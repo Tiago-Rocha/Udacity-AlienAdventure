@@ -29,7 +29,6 @@ extension Hero {
                 print("Unknown Error")
             }
         }
-        print(errors)
         return errors
     }
 }
