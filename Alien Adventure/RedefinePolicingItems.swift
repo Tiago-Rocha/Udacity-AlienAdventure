@@ -16,14 +16,24 @@ enum UDPolicingError: ErrorType {
 
 extension Hero {
     
+    /*
+     contains laser
+     from cunia
+     basevalue < 10
+     */
     func redefinePolicingItems() -> (UDItem throws -> Void) {
         
         func policingFilter(item: UDItem) throws -> Void {
-            
+            if item.name.lowercaseString.containsString("laser") {
+                throw UDPolicingError.NameContainsLaser
+            } else if item.historicalData["PlanetOfOrigin"] as! String == "Cunia"{
+                throw UDPolicingError.ItemFromCunia
+            } else if item.baseValue < 10 {
+                throw UDPolicingError.ValueLessThan10
+            }
         }
-        
-        return policingFilter        
-    }    
+        return policingFilter
+    }
 }
 
 // If you have completed this function and it is working correctly, feel free to skip this part of the adventure by opening the "Under the Hood" folder, and making the following change in Settings.swift: "static var RequestsToSkip = 3"
