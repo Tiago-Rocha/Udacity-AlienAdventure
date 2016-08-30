@@ -16,11 +16,6 @@ enum UDPolicingError: ErrorType {
 
 extension Hero {
     
-    /*
-     contains laser
-     from cunia
-     basevalue < 10
-     */
     func redefinePolicingItems() -> (UDItem throws -> Void) {
         
         func policingFilter(item: UDItem) throws -> Void {
