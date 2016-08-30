@@ -9,9 +9,14 @@
 extension Hero {
     
     func sortLeastToGreatest(inventory: [UDItem]) -> [UDItem] {
-        return [UDItem]()
+        return inventory.sort ({
+            if $0.rarity.rawValue != $1.rarity.rawValue {
+                return $0.rarity.rawValue < $1.rarity.rawValue
+            } else {
+                return $0.baseValue < $1.baseValue
+            }
+        })
     }
-    
 }
 
 // If you have completed this function and it is working correctly, feel free to skip this part of the adventure by opening the "Under the Hood" folder, and making the following change in Settings.swift: "static var RequestsToSkip = 5"
